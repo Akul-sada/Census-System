@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DatePickerComponent from "./DatePickerComponent";
 import axios from 'axios';
@@ -46,7 +46,7 @@ const Form = () => {
   return (
     <>
  
-      {isSubmited ? <Message isSubmited={isSubmited}/>:<ErrorMessage isSubmited={isSubmited}/>}
+      {isSubmited ? <Message/>:<ErrorMessage/>}
       <h1 className="text-center text-5xl text-blue-700 mb-12">
         Census Management
       </h1>
