@@ -66,7 +66,7 @@ useEffect(()=>{
       </div>
       <DataTable data={data} />
       <LineGraph lineData={lineData} lineData2={lineData2}/>
-      <BarGraph barDataMale={barDataMale} barDataFemale={barDataFemale} barDataOthers={barDataOthers}/>
+      <BarGraph style={{padding:'20px',width:'80%'}} barDataMale={barDataMale} barDataFemale={barDataFemale} barDataOthers={barDataOthers}/>
     </>
   );
 };

@@ -42,7 +42,7 @@ const LineGraph = ({ lineData, lineData2 }) => {
     <>
       <div>
         <Line
-          style={{ width: "700px" }}
+          
           data={{
             labels: lineChartAgeArrayVaccinated,
             datasets: [
