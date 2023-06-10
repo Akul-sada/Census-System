@@ -71,15 +71,19 @@ const BarGraph = ({barDataMale,barDataFemale,barDataOthers}) => {
     plugins: {
       title: {
         display: true,
-        text: 'Chart.js Bar Chart - Stacked',
+        text: 'Chart Showing Number of people who took part in survey',
       },
     },
     responsive: true,
     scales: {
       x: {
+        display:true,
+        text:'Age',
         stacked: false,
       },
       y: {
+        display:true,
+        text:'Number',
         stacked: false,
       },
     },
