@@ -65,9 +65,8 @@ useEffect(()=>{
         </Link>
       </div>
       <DataTable data={data} />
-
-      
-      
+      <LineGraph lineData={lineData} lineData2={lineData2}/>
+      <BarGraph barDataMale={barDataMale} barDataFemale={barDataFemale} barDataOthers={barDataOthers}/>
     </>
   );
 };
