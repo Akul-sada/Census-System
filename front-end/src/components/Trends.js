@@ -1,20 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Chart from "chart.js/auto";
 import axios from "axios";
-import DataTable from "./DataTable";
-import { Line } from "react-chartjs-2";
-// import {
-//   Chart as ChartJS,
-//   Title,
-//   LineElement,
-//   CategoryScale,
-//   PointElement,
-//   Tooltip,
-//   Legend,
-//   LinearScale
-
-// } from "chart.js";
 import { Link } from "react-router-dom";
+import LineGraph from "./LineGraph";
+import DataTable from "./DataTable";
+import BarGraph from "./BarGraph";
 
 const Trend = () => {
   // Table
@@ -28,86 +17,42 @@ const Trend = () => {
     getAllData();
   }, []);
 
+
   // Line Chart
   const [lineData, setLineData] = useState([]);
   const [lineData2, setLineData2] = useState([]);
 
+  const getLineChartData =async ()=>{
+    const lineChart = await axios.get("http://localhost:8000/number-vaccinated");
+    const lineChart2 = await axios.get("http://localhost:8000/number-not-vaccinated");
   
-  const getLineChartData = async () => {
-    const lineChart = await axios.get(
-      "http://localhost:8000/number-vaccinated"
-    );
-    const lineChart2 = await axios.get(
-      "http://localhost:8000/number-not-vaccinated"
-    );
-    const lineChartArr = lineChart.data.data;
-    const lineChartAgeArray = lineChartArr.map((data) => data.age);
-    const lineChartNumberArray = lineChartArr.map(
-      (data) => data.number_vaccinated
-    );
+    setLineData(lineChart.data.data);
+    setLineData2(lineChart2.data.data);
 
-    const lineChartArr2 = lineChart2.data.data;
-    const lineChartAgeArrayNotVaccinated = lineChartArr2.map(
-      (data) => data.age
-    );
-    const lineChartNumberArrayNotVaccinated = lineChartArr2.map(
-      (data) => data.number_vaccinated
-    );
-    console.log(lineChartAgeArray);
-    console.log(lineChartNumberArray);
-    console.log(lineChartAgeArrayNotVaccinated);
-    console.log(lineChartNumberArrayNotVaccinated);
-    setLineData(lineChartArr);
-    setLineData2(lineChartArr2);
-  };
-  useEffect(() => {
+
+  }
+  useEffect(()=>{
     getLineChartData();
-  }, []);
-
-  //  Line graph implementation
-
-  const vaccinatedData = {
-    labels: lineChartAgeArray,
-    datasets: [
-      {
-        label: "Vaccinated",
-        data: lineChartNumberArray,
-        borderColor: "green",
-        fill: false,
-      },
-    ],
-  };
-
-  const nonVaccinatedData = {
-    labels: lineChartAgeArrayNotVaccinated,
-    datasets: [
-      {
-        label: "Not Vaccinated",
-        data: lineChartNumberArrayNotVaccinated,
-        borderColor: "red",
-        fill: false,
-      },
-    ],
-  };
-
-  const options = {
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Age",
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: "Number of People",
-        },
-      },
-    },
-  };
+  },[]);
+  
 
   // Bar Chart
+  const [barDataMale,setBarDataMale] = useState([]);
+  const [barDataFemale,setBarDataFemale] = useState([]);
+  const [barDataOthers,setBarDataOthers] = useState([]);
+const getBarChartData = async ()=>{
+  const barChartMale = await axios.get("http://localhost:8000/number-gender-male");
+  const barChartFemale = await axios.get("http://localhost:8000/number-gender-female");
+  const barChartOthers = await axios.get("http://localhost:8000/number-gender-others");
+  setBarDataMale(barChartMale.data.data);
+  setBarDataFemale(barChartFemale.data.data);
+  setBarDataOthers(barChartOthers.data.data);
+}
+useEffect(()=>{
+  getBarChartData();
+
+});
+
 
   return (
     <>
@@ -121,10 +66,8 @@ const Trend = () => {
       </div>
       <DataTable data={data} />
 
-      <div>
-        <Line data={vaccinatedData} options={options} />
-        <Line data={nonVaccinatedData} options={options} />
-      </div>
+      
+      
     </>
   );
 };
