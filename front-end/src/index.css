@@ -16,7 +16,8 @@ code {
     monospace;
 }
 .chart-styles{
-  border: 2px solid #E6A817;
+  /* border: 2px solid #E6A817; */
+  border: 2px solid #007FFF;
   padding: 80px;
   margin: 20px;
   border-radius: 6px;

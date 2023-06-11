@@ -24,21 +24,21 @@ const DataTable = ({data}) => {
         <table className="table-auto min-w-full">
           <thead>
             <tr>
-              <th className="border px-4 py-2">ID</th>
-              <th className="border px-4 py-2">Name</th>
-              <th className="border px-4 py-2">Is Vaccinated</th>
-              <th className="border px-4 py-2">Birthdate</th>
-              <th className="border px-4 py-2">Gender</th>
+              <th className="border border-blue-600 px-4 py-2">ID</th>
+              <th className="border border-blue-600 px-4 py-2">Name</th>
+              <th className="border border-blue-600 px-4 py-2">Is Vaccinated</th>
+              <th className="border border-blue-600 px-4 py-2">Birthdate</th>
+              <th className="border border-blue-600 px-4 py-2">Gender</th>
             </tr>
           </thead>
           <tbody>
             
            {data.map((data,i)=><tr key={i}>
-              <td className="border px-4 py-2 text-center">{i+1}</td>
-              <td className="border px-4 py-2 text-center">{data.name}</td>
-              <td className="border px-4 py-2 text-center">{JSON.stringify(data.is_vaccinated)}</td>
-              <td className="border px-4 py-2 text-center">{changeDateFormat(data.birthdate)}</td>
-              <td className="border px-4 py-2 text-center">{data.gender}</td>
+              <td className="border border-blue-600 px-4 py-2 text-center">{i+1}</td>
+              <td className="border border-blue-600 px-4 py-2 text-center">{data.name}</td>
+              <td className="border border-blue-600 px-4 py-2 text-center">{JSON.stringify(data.is_vaccinated)}</td>
+              <td className="border border-blue-600 px-4 py-2 text-center">{changeDateFormat(data.birthdate)}</td>
+              <td className="border border-blue-600 px-4 py-2 text-center">{data.gender}</td>
             </tr>)} 
           </tbody>
         </table>
