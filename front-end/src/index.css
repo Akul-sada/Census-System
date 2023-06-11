@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.chart-styles{
+  border: 2px solid #E6A817;
+  padding: 80px;
+  margin: 80px;
+  border-radius: 6px;
+  width:80%;
+}

@@ -32,76 +32,51 @@ const LineGraph = ({ lineData, lineData2 }) => {
   const lineChartNumberArrayNotVaccinated = lineData2.map(
     (data) => data.number_not_vaccinated
   );
-  const ageArray = [];
-  for (let i = 0; i < 50; i++) {
-    ageArray.push(i);
+ const data = {
+  labels: Array.from({length:100},(_,i)=>i+1),
+  datasets: [
+    {
+      label:'Vaccinated',
+      data: lineChartAgeArrayVaccinated.map((age,index)=>({x:parseInt(age),y:parseInt(lineChartNumberArrayVaccinated[index])})),
+      borderColor:'rgba(75,192,192,1)',
+      backgroundColor:'rgba(75,192,0.2)',
+      fill:false
+    },
+    {
+      label:'Not Vaccinated',
+      data: lineChartAgeArrayNotVaccinated.map((age,index)=>({x:parseInt(age),y:parseInt(lineChartNumberArrayNotVaccinated[index])})),
+      borderColor:'rgba(255,99,132,1)',
+      backgroundColor:'rgba(255,99,131,0.2)',
+      fill:false
+    }
+  ]
+ }
+ const options ={
+  scales:{
+    x:{
+      type:'linear',
+      title:{
+        display:true,
+        text:'Age'
+      }
+    },
+    y:{
+      title:{
+        display:true,
+        text:'Number of People'
+      }
+    }
   }
+ }
 
 
   return (
     <>
-      <div>
-        <Line
-          
-          data={{
-            labels: lineChartAgeArrayVaccinated,
-            datasets: [
-              {
-                id: 1,
-                label: "People Vaccinated",
-                data: lineChartNumberArrayVaccinated,
-                borderColor:'red'
-              },
-            ],
-          }}
-          options={{
-            scales: {
-              x: {
-                title: {
-                  display: true,
-                  text: "Age",
-                },
-              },
-              y: {
-                title: {
-                  display: true,
-                  text: "Number of People",
-                },
-              },
-            },
-          }}
-        />
-        <Line
-          style={{ width: "700px" }}
-          data={{
-            labels: lineChartAgeArrayNotVaccinated,
-            datasets: [
-              {
-                id: 2,
-                label: "People Not vaccinated",
-                data: lineChartNumberArrayNotVaccinated,
-                borderColor:'yellow'
-              },
-            ],
-          }}
-          options={{
-            scales: {
-              x: {
-                title: {
-                  display: true,
-                  text: "Age",
-                },
-              },
-              y: {
-                title: {
-                  display: true,
-                  text: "Number of People",
-                },
-              },
-            },
-          }}
-        />
+    <div className="flex justify-center">
+      <div className=" chart-styles">
+        <Line data={data} options={options}/>
       </div>
+    </div>
     </>
   );
 };

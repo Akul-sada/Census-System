@@ -53,6 +53,8 @@ useEffect(()=>{
 
 });
 
+// Styles for charts
+
 
   return (
     <>

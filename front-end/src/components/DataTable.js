@@ -4,15 +4,18 @@ const DataTable = ({data}) => {
   
   return (
     <>
-        <div className="overflow-x-auto h-96">
+      <div className='flex justify-center'>
+
+      
+        <div className="overflow-x-auto h-96 mt-7 w-5/6">
         <table className="table-auto min-w-full">
           <thead>
             <tr>
-              <th className="px-4 py-2">ID</th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Is Vaccinated</th>
-              <th className="px-4 py-2">Birthdate</th>
-              <th className="px-4 py-2">Gender</th>
+              <th className="border px-4 py-2">ID</th>
+              <th className="border px-4 py-2">Name</th>
+              <th className="border px-4 py-2">Is Vaccinated</th>
+              <th className="border px-4 py-2">Birthdate</th>
+              <th className="border px-4 py-2">Gender</th>
             </tr>
           </thead>
           <tbody>
@@ -27,6 +30,7 @@ const DataTable = ({data}) => {
           </tbody>
         </table>
       </div>
+    </div>
     </>
   )
 }
