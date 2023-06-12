@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### I have included census_management.sql file. Create a new database with the name "Census_Management" right click on the database click restore option select the file(census_management.sql) included. The table with database will be created.
+
 
 
 ## Available Scripts

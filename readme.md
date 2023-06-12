@@ -9,6 +9,9 @@ React<br>
 Node<br>
 <br>
 
+![Contact Form](./1stpage.png "contact form")
+![Trends](./2ndpage.png "Trends")
+
 ### How to install
 
 clone the repo 
@@ -44,6 +47,7 @@ npm install
 ```
 npm start
 ```
+### I have included census_management.sql file. Create a new database with the name "Census_Management" right click on the database click restore option select the file(census_management.sql) included. The table with database will be created.
 
 ### Steps Implimented for the project <br>
 -Connected to a PostgresSQL database and created table in Express Nodejs<br>
