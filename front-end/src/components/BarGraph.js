@@ -110,13 +110,13 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
     scales: {
       x: {
         display: true,
-        text: "Age",
         stacked: false,
+        text: "Age"
       },
       y: {
         display: true,
-        text: "Number",
         stacked: false,
+        text: "Number"
       },
     }
   };
