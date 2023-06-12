@@ -12,7 +12,7 @@ import {
   PointElement,
 } from "chart.js";
 
-import "chartjs-plugin-zoom";
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 Chart.register(
   CategoryScale,
@@ -22,7 +22,8 @@ Chart.register(
   Title,
   Tooltip,
   LineElement,
-  PointElement
+  PointElement,
+  zoomPlugin
 );
 
 const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
@@ -32,17 +33,13 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
   const numberFemale = barDataFemale.map((data) => data.number_female);
   const agesOthers = barDataOthers.map((data) => data.age);
   const numberOthers = barDataOthers.map((data) => data.number_others);
-  // console.log(agesMale);
-  // console.log(numberMale);
-  // console.log(agesFemale);
-  // console.log(numberFemale);
-  // console.log(agesOthers);
-  // console.log(numberOthers);
 
   const data = {
-    labels: Array.from({ length: 60 }, (_, i) => i + 1),
+    labels: Array.from({ length: 100 }, (_, i) => i + 1),
     datasets: [
+      
       {
+        barThickness:6,
         label: "number of males",
         data: agesMale.map((age, index) => ({
           x: parseInt(age),
@@ -50,9 +47,10 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
         })),
         backgroundColor: "aqua",
         borderColor: "black",
-        border: 1,
+        border: 3,
       },
       {
+        barThickness:6,
         label: "number of females",
         data: agesFemale.map((age, index) => ({
           x: parseInt(age),
@@ -60,9 +58,10 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
         })),
         backgroundColor: "#72A0C1",
         borderColor: "black",
-        border: 1,
+        border: 3,
       },
       {
+        barThickness:6,
         label: "number of others",
         data: agesOthers.map((age, index) => ({
           x: parseInt(age),
@@ -70,16 +69,42 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
         })),
         backgroundColor: "rgba(255,99,131,0.8)",
         borderColor: "black",
-        border: 1,
+        border: 3,
       },
     ],
   };
+
   const options = {
     plugins: {
       title: {
         display: true,
         text: "Chart Showing Number of people who took part in survey according to their ages",
+      },
+     zoom:{
+      pan:{
+        enabled:true,
+        mode:"xy",
+        speed:10,
+      },
+
+      zoom:{
+        wheel:{
+          enabled:true,
+        },
+        pinch:{
+          enabled:true
+        },
+        mode:'xy',
+        rangeMin:{
+          x:0,
+          y:0
+        },
+        rangeMax:{
+          x:10,
+          y:15
+        }
       }
+     }
     },
     responsive: true,
     scales: {
@@ -93,28 +118,10 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
         text: "Number",
         stacked: false,
       },
-    },
-    pan:{
-      enabled:true,
-      mode:"xy",
-      speed:10,
-    },
-    zoom:{
-      enabled:true,
-      drag:false,
-      mode:"xy",
-      rangeMin:{
-        x:0,
-        y:0
-      },
-      rangeMax:{
-        x:10,
-        y:15
-      }
     }
   };
 
-  // css styles
+
 
 
   return (
