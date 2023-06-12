@@ -35,7 +35,7 @@ const BarGraph = ({ barDataMale, barDataFemale, barDataOthers }) => {
   const numberOthers = barDataOthers.map((data) => data.number_others);
 
   const data = {
-    labels: Array.from({ length: 100 }, (_, i) => i + 1),
+    labels: Array.from({ length: 100 }, (_, i) => i+1),
     datasets: [
       
       {
