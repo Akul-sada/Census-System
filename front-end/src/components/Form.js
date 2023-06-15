@@ -15,7 +15,7 @@ const Form = () => {
   const birthdateStr = startDate.toString();
   const dateN = new Date(birthdateStr);
   const birthdate = dateN.toISOString();
-  let isSubmited = true;
+  let isSubmited;
 
   const handleDateChange = (date) => {
     setStartDate(date);
