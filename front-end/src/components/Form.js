@@ -15,7 +15,7 @@ const Form = () => {
   const birthdateStr = startDate.toString();
   const dateN = new Date(birthdateStr);
   const birthdate = dateN.toISOString();
-  let isSubmited;
+  let isSubmited =true;
 
   const handleDateChange = (date) => {
     setStartDate(date);
@@ -29,7 +29,7 @@ const Form = () => {
           name,
           is_vaccinated,
           birthdate,
-          gender,
+          gender
         })
         .then(response=>{
           if(response.statusText
@@ -38,7 +38,7 @@ const Form = () => {
           }else{
             isSubmited= false;
           }
-          console.log(response);
+      
         })
         .catch(err=>console.log(err))
     }

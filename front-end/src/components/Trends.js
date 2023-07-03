@@ -21,15 +21,12 @@ const Trend = () => {
   // Line Chart
   const [lineData, setLineData] = useState([]);
   const [lineData2, setLineData2] = useState([]);
-
+  
   const getLineChartData =async ()=>{
     const lineChart = await axios.get("http://localhost:8000/number-vaccinated");
-    const lineChart2 = await axios.get("http://localhost:8000/number-not-vaccinated");
-  
+    const lineChart2 = await axios.get("http://localhost:8000/number-not-vaccinated"); 
     setLineData(lineChart.data.data);
     setLineData2(lineChart2.data.data);
-
-
   }
   useEffect(()=>{
     getLineChartData();

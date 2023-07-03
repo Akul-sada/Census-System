@@ -12,7 +12,7 @@ client.connect();
 
 // Gets all the columns from the database
 app.get('/records',(req,res)=>{
-    client.query(`select * from census`,(err,result)=>{
+    client.query(`select * from census order by birthdate desc`,(err,result)=>{
         if(!err){
             res.status(201).json({
                 status:'success',
@@ -60,10 +60,11 @@ app.get('/number-vaccinated',(req,res)=>{
     });
     client.end;
 });
+
 // Get number of number of people who didnot get vaccinated in the age
 app.get('/number-not-vaccinated',(req,res)=>{
     client.query(`select extract(year from age('2023-06-08T18:30:00.000Z',birthdate)) as age,count(is_vaccinated) as number_not_vaccinated from census where is_vaccinated='false' group by age order by age asc;`,(err,result)=>{
-
+    
         if(!err){
             res.status(201).json({
                 data:result.rows
@@ -72,8 +73,6 @@ app.get('/number-not-vaccinated',(req,res)=>{
     });
     client.end;
 });
-
-
 
 
 // number of people from each gender polled for the census 
