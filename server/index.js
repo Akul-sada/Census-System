@@ -10,9 +10,18 @@ dotenv.config({path:'./config.env'});
 
 client.connect();
 
-const recordsRoutes = require('./Routes/records');
-
+const recordsRoutes = require('./Routes/GetRecords');
+const isvaccinatedRoutes = require('./Routes/isvaccinated');
+const isvaccinated = require('./Routes/number-vaccinated');
+const numberNotVaccinated = require('./Routes/number-not-vaccinated');
+const numberGenderMale = require('./Routes/number-gender-male');
+const numberGenderFemale = require('./Routes/number-gender-female');
 app.use(recordsRoutes);
+app.use(isvaccinatedRoutes);
+app.use(isvaccinated);
+app.use(numberNotVaccinated);
+app.use(numberGenderMale);
+app.use(numberGenderFemale);
 
 // Gets all the columns from the database
 // app.get('/records',(req,res)=>{
@@ -136,7 +145,7 @@ app.use(recordsRoutes);
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 app.listen(port,()=>{
     console.log(`App running on port ${port}`);
 });

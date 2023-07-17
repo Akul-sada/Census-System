@@ -1,6 +1,7 @@
 import React from 'react'
 
 const DataTable = ({data}) => {
+  console.log(data);
   function changeDateFormat(inputDate){
     // Create a new Date object using the input date string
     const date = new Date(inputDate);
@@ -15,6 +16,7 @@ const DataTable = ({data}) => {
     return formatedDate;
 
   }
+
   return (
     <>
       <div className='flex justify-center'>

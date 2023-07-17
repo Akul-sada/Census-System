@@ -10,19 +10,17 @@ const Form = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [gender, setGender] = useState("");
   
-
   // Change the format of date
   const birthdateStr = startDate.toString();
   const dateN = new Date(birthdateStr);
   const birthdate = dateN.toISOString();
   let isSubmited =true;
-
+  
   const handleDateChange = (date) => {
     setStartDate(date);
   };
 
-  
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
       let is_vaccinated = Boolean(isVaccinated)
         e.preventDefault();
         axios.post('http://localhost:8000/records', {
@@ -45,7 +43,6 @@ const Form = () => {
     
   return (
     <>
- 
       {isSubmited ? <Message/>:<ErrorMessage/>}
       <h1 className="text-center text-5xl text-blue-700 mb-12">
         Census Management

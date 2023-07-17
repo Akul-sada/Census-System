@@ -16,7 +16,6 @@ router.get('/records', async (req,res)=>{
             status:'error',
             message:'Failed to fetch census records',
         });
-
     }
 });
 
