@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
-const sequelize = require('../sequelize');
+const sequelize = require('../prisma');
 
 const Records = sequelize.define('record',{
     name: {
