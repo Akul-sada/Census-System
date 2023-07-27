@@ -10,7 +10,7 @@ router.get('/number-vaccinated', async (req, res) => {
         EXTRACT(YEAR FROM AGE('2023-06-08T18:30:00.000Z', birthdate)) AS age,
         COUNT(is_vaccinated) AS number_vaccinated
       FROM
-        Record
+        Records
       WHERE
         is_vaccinated = true
       GROUP BY

@@ -10,7 +10,7 @@ router.get('/number-gender-female', async (req, res) => {
         EXTRACT(YEAR FROM AGE('2023-06-08T18:30:00.000Z', birthdate)) AS age,
         COUNT(gender) AS number_female
       FROM
-        Record
+        Records
       WHERE
         gender = 'female'
       GROUP BY

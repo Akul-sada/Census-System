@@ -31,7 +31,7 @@ app.use(numberGenderFemale);
 
 async function main() {
     const query = Prisma.sql`
-      INSERT INTO records (name, is_vaccinated, birthdate, gender)
+      INSERT INTO Records (name, is_vaccinated, birthdate, gender)
       VALUES
         ('John Doe', true, '1990-05-15', 'male'),
         ('Jane', false, '1985-10-20', 'others'),

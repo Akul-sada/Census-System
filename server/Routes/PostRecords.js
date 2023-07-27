@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 router.post('/records', async (req, res) => {
   try {
     const census = req.body;
-    const record = await prisma.record.create({
+    const record = await prisma.Records.create({
       data: {
         name: census.name,
         is_vaccinated: census.is_vaccinated,
