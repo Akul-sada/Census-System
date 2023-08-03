@@ -19,4 +19,6 @@ model Records {
   birthName      DateTime
   gender         String
   id             Int      @id @default(autoincrement())
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
 }
