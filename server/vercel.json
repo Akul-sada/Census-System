@@ -35,7 +35,7 @@
         {
             "src":"/records",
             "methods": ["POST"],
-            "dest":"PostRecords.js"
+            "dest":"/PostRecords.js"
         }
     ]
   }
