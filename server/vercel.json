@@ -1,0 +1,46 @@
+{
+    "version":2,
+    "builds": [
+      { "src": "*.js", "use": "@vercel/python" },
+      { "src": "*.js", "use": "@vercel/node" }
+    ],
+    "routes":[
+        {
+            "src":"/(.*)",
+            "dest":"/"
+        },
+        {
+            "src":"/records",
+            "dest":"/GetRecords.js"
+        },
+        {
+            "src":"/isvaccinated",
+            "dest":"/isvaccinated.js"
+        },
+        {
+            "src":"/number-gender-female",
+            "dest":"/number-gender-female.js"
+        },
+        {
+            "src":"/number-gender-male",
+            "dest":"number-gender-male.js"
+        },
+        {
+            "src":"/number-gender-others",
+            "dest":"number-gender-others.js"
+        },
+        {
+            "src":"/number-not-vaccinated",
+            "dest":"number-not-vaccinated.js"
+        },
+        {
+            "src":"/number-vaccinated",
+            "dest":"number-vaccinated.js"
+        },
+        {
+            "src":"/records",
+            "methods": ["POST"],
+            "dest":"PostRecords.js"
+        }
+    ]
+  }

@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 router.get('/isvaccinated', async (req, res) => {
   try {
-    const censusRecords = await prisma.Records.findMany({
+    const censusRecords = await prisma.records.findMany({
       select: {
         is_vaccinated: true
       }

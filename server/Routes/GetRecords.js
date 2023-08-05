@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 router.get('/records', async (req, res) => {
   try {
-    const censusRecords = await prisma.Records.findMany();
+    const censusRecords = await prisma.records.findMany();
     res.status(200).json({
       status: 'success',
       data: censusRecords
