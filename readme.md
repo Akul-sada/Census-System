@@ -60,6 +60,7 @@ npm start
 -Used Tailwind CSS for UI in ReactJs<br>
 -Used Axios for GET and POST request<br>
 -Used react-chartjs to design chart<br>
+-Used Sequalize and Prisma ORM in different branches in my git repository.<br>
 
 ## Project description 
 (#project-description)
